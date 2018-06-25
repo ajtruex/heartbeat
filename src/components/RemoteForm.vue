@@ -1,26 +1,26 @@
 <template>
     <div>
         <v-progress-linear :indeterminate="true" v-if="loading"></v-progress-linear>
-        <form v-if="!loading">
+        <form v-if="!loading" @keyup.enter="save">
             <v-card class="pa-2 elevation-0"></v-card>
             <v-card-title>
                 Remote
             </v-card-title>
             <v-card-text>
                 <v-text-field
-                    prepend-icon="visibility" label="Alias" suffix=" " autofocus
+                    prepend-icon="visibility" label="Alias" suffix=" " autofocus v-model="remote.alias"
                 ></v-text-field>
                 <v-text-field
-                    prepend-icon="cloud" label="http://" suffix=" "
+                    prepend-icon="cloud" label="http://" suffix=" " v-model="remote.uri"
                 ></v-text-field>
                 <v-text-field
-                    prepend-icon="timer" label="Interval" suffix="s"
+                    prepend-icon="timer" label="Interval" suffix="s" v-model="remote.interval"
                 ></v-text-field>
             </v-card-text>
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn flat @click="cancel">Cancel</v-btn>
-                <v-btn class="secondary">Save</v-btn>
+                <v-btn class="secondary" @click="save">Save</v-btn>
             </v-card-actions>
         </form>
     </div>
@@ -30,14 +30,25 @@
 export default {
   data() {
     return {
-      loading: true
+      loading: true,
+      remote: {
+        alias: "",
+        uri: "",
+        interval: 10
+      }
     };
   },
   created() {
-    this.loading = true;
+    this.loading = false;
   },
   methods: {
     cancel() {
+      this.$router.push({
+        path: "/"
+      });
+    },
+    save() {
+      this.$store.commit("saveRemote", this.remote);
       this.$router.push({
         path: "/"
       });

@@ -25,7 +25,7 @@
     </v-btn>
     <v-spacer></v-spacer>
 
-    <v-btn fab top right absolute class="accent">
+    <v-btn fab top right absolute class="accent" @click="add">
       <v-icon>add</v-icon>
     </v-btn>
 
@@ -41,6 +41,13 @@ export default {
   },
   components: {
     HbRemotesList
+  },
+  methods: {
+    add() {
+      this.$router.push({
+        path: "/remote"
+      });
+    }
   }
 };
 </script>
