@@ -10,12 +10,9 @@
 
 <main>
   <v-container fluid class="pa-0">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <router-view></router-view>
+    <v-slide-y-transition mode="out-in">
+    <router-view class="mt-5"></router-view>
+    </v-slide-y-transition>
   </v-container>
 </main>
 

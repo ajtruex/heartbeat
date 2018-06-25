@@ -10,5 +10,10 @@ export const routes = [{
     {
         path: '/remote',
         component: RemoteForm
+    },
+    {
+        path: '/remote/:id',
+        component: RemoteForm,
+        props: true
     }
 ]
