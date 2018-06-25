@@ -10,10 +10,26 @@
 
 <main>
   <v-container fluid class="pa-0">
-    <hb-remotes-list></hb-remotes-list>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <router-view></router-view>
   </v-container>
 </main>
 
+  <v-footer :fixed="true">
+    <v-btn icon>
+      <v-icon class="grey--text text-darken-3">settings</v-icon>
+    </v-btn>
+    <v-spacer></v-spacer>
+
+    <v-btn fab top right absolute class="accent">
+      <v-icon>add</v-icon>
+    </v-btn>
+
+  </v-footer>
   </v-app>
 </template>
 

@@ -1,5 +1,7 @@
 <template>
     <v-list two-line>
+      <br>
+      <br>
         <v-subheader>Remotes List</v-subheader>
         <hb-remote :remote="remoteItem" v-for="remoteItem in list" :key="remoteItem._id"></hb-remote>
     </v-list>

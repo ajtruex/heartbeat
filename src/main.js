@@ -1,6 +1,7 @@
 require('../node_modules/vuetify/src/stylus/app.styl')
 
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 import {
   Vuetify,
   VApp,
@@ -14,9 +15,16 @@ import {
   VAvatar,
   VMenu,
   VSwitch,
+  VCard,
+  VTextField,
+  VProgressLinear,
   transitions
 } from 'vuetify'
+
 import App from './App.vue'
+import {
+  routes
+} from './routes'
 
 Vue.use(Vuetify, {
   components: {
@@ -31,6 +39,9 @@ Vue.use(Vuetify, {
     VAvatar,
     VMenu,
     VSwitch,
+    VCard,
+    VTextField,
+    VProgressLinear,
     transitions
   },
   theme: {
@@ -44,7 +55,15 @@ Vue.use(Vuetify, {
   }
 })
 
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+  routes,
+  mode: 'history'
+})
+
 new Vue({
   el: '#app',
+  router,
   render: h => h(App)
 })
