@@ -40,6 +40,10 @@ export default {
   },
   created() {
     this.loading = false;
+    let id = this.$route.params.id;
+    if (id) {
+      this.remote = this.$store.getters.remote(id);
+    }
   },
   methods: {
     cancel() {

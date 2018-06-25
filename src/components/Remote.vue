@@ -10,13 +10,13 @@
 
          <v-list-tile-action>
              <v-layout>
-                 <v-switch></v-switch>
+                 <v-switch class="mr-3"></v-switch>
                     <v-menu>
                         <v-btn icon slot="activator" class="m1-2">
                             <v-icon>more_vert</v-icon>
                         </v-btn>
                         <v-list>
-                            <v-list-tile>
+                            <v-list-tile :to="{path: `/remote/${remote._id}`}">
                                 <v-list-tile-title>Edit</v-list-tile-title>
                             </v-list-tile>
                             <v-list-tile @click="removeRemote(remote._id)">

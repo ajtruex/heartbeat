@@ -21,12 +21,24 @@ export const storeDef = {
     getters: {
         allRemotes: state => {
             return state.remotesList
-        }
+        },
+        remote: (state, getters) => id => state.remotesList.find(({
+            _id
+        }) => _id === +id)
     },
     actions: {},
     mutations: {
         saveRemote: (state, remote) => {
-            state.remotesList.unshift(remote)
+            let index = state.remotesList.findIndex(({
+                _id
+            }) => _id === remote._id)
+            if (index >= 0) {
+                state.remotesList[index] = remote
+            } else {
+                remote._id = Date.now()
+                state.remotesList.unshift(remote)
+            }
+
         },
         deleteRemote: (state, id) => {
             let index = state.remotesList.findIndex(({
