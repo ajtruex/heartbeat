@@ -1,9 +1,9 @@
 <template>
   <v-app dark>
-    <v-toolbar dark fixed dense>
+    <v-toolbar style="-webkit-app-region: drag;" dark fixed dense>
       <v-toolbar-title>Heartbeat</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
+      <v-btn icon @click="closeWindow()">
         <v-icon>close</v-icon>
       </v-btn>
     </v-toolbar>
@@ -32,6 +32,7 @@
 
 <script>
 import HbRemotesList from "./components/RemotesList";
+let win = nw.Window.get();
 export default {
   data() {
     return {};
@@ -44,6 +45,9 @@ export default {
       this.$router.push({
         path: "/remote"
       });
+    },
+    closeWindow() {
+      win.close();
     }
   }
 };
