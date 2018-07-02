@@ -22,7 +22,7 @@
     </v-btn>
     <v-spacer></v-spacer>
 
-    <v-btn fab top right absolute class="accent" @click="add">
+    <v-btn fab top right absolute class="primary" @click="add">
       <v-icon>add</v-icon>
     </v-btn>
 
