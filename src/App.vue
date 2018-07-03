@@ -32,8 +32,20 @@
 
 <script>
 import HbRemotesList from "./components/RemotesList";
+// import Monitor from "ping-monitor";
+// let Monitor = require("ping-monitor");
+
 let win = nw.Window.get();
 export default {
+  //   created() {
+  //     let myMonitor = new Monitor({
+  //       website: "http://localhost:9090/health",
+  //       interval: 5 / 60
+  //     });
+  //     myMonitor.on("up", function(res) {
+  //       console.log("yes!!", JSON.stringify(res));
+  //     });
+  //   },
   data() {
     return {};
   },
