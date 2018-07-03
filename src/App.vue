@@ -1,66 +1,64 @@
 <template>
-  <v-app dark>
-    <v-toolbar style="-webkit-app-region: drag;" dark fixed dense>
-      <v-toolbar-title>Heartbeat</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn icon @click="closeWindow()">
-        <v-icon>close</v-icon>
-      </v-btn>
-    </v-toolbar>
+	<v-app dark>
+		<v-toolbar style="-webkit-app-region: drag;" dark fixed dense>
+			<v-toolbar-title>Heartbeat</v-toolbar-title>
+			<v-spacer></v-spacer>
+			<v-btn icon @click="closeWindow()">
+				<v-icon>close</v-icon>
+			</v-btn>
+		</v-toolbar>
 
-<main>
-  <v-container fluid class="pa-0">
-    <v-slide-y-transition mode="out-in">
-    <router-view class="mt-5"></router-view>
-    </v-slide-y-transition>
-  </v-container>
-</main>
+		<main>
+			<v-container fluid class="pa-0">
+				<v-slide-y-transition mode="out-in">
+					<router-view class="mt-5"></router-view>
+				</v-slide-y-transition>
+			</v-container>
+		</main>
 
-  <v-footer :fixed="true">
-    <v-btn icon>
-      <v-icon class="grey--text text-darken-3">settings</v-icon>
-    </v-btn>
-    <v-spacer></v-spacer>
+		<v-footer :fixed="true">
+			<v-btn icon>
+				<v-icon class="grey--text text-darken-3">settings</v-icon>
+			</v-btn>
+			<v-spacer></v-spacer>
 
-    <v-btn fab top right absolute class="info" @click="add">
-      <v-icon>add</v-icon>
-    </v-btn>
+			<v-btn fab top right absolute class="info" @click="add">
+				<v-icon>add</v-icon>
+			</v-btn>
 
-  </v-footer>
-  </v-app>
+		</v-footer>
+	</v-app>
 </template>
 
 <script>
-import HbRemotesList from "./components/RemotesList";
-// import Monitor from "ping-monitor";
-// let Monitor = require("ping-monitor");
+import HbRemotesList from "./components/RemotesList"
 
-let win = nw.Window.get();
+let win = nw.Window.get()
 export default {
-  //   created() {
-  //     let myMonitor = new Monitor({
-  //       website: "http://localhost:9090/health",
-  //       interval: 5 / 60
-  //     });
-  //     myMonitor.on("up", function(res) {
-  //       console.log("yes!!", JSON.stringify(res));
-  //     });
-  //   },
-  data() {
-    return {};
-  },
-  components: {
-    HbRemotesList
-  },
-  methods: {
-    add() {
-      this.$router.push({
-        path: "/remote"
-      });
-    },
-    closeWindow() {
-      win.close();
-    }
-  }
-};
+	data() {
+		return {}
+	},
+	components: {
+		HbRemotesList
+	},
+	methods: {
+		add() {
+			this.$router.push({
+				path: "/remote"
+			})
+		},
+		closeWindow() {
+			win.close()
+		}
+	}
+}
 </script>
+<style lang="stylus">
+@import './stylus/main';
+
+::-webkit-scrollbar {
+	width: 0px;
+	background: transparent;
+}
+</style>
+

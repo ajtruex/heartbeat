@@ -51,10 +51,10 @@ module.exports = {
     hints: false
   },
   devtool: '#eval-source-map',
-  // externals: {
-  //   fs: 'commonjs fs',
-  //   path: 'commonjs path'
-  // }
+  externals: {
+    fs: 'commonjs fs',
+    path: 'commonjs path'
+  }
 }
 
 if (process.env.NODE_ENV === 'production') {

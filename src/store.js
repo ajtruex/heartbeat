@@ -3,19 +3,8 @@ export const storeDef = {
         remotesList: [{
             _id: 0,
             alias: "my alias 1",
-            uri: "http://localhost:9090"
-        }, {
-            _id: 1,
-            alias: "my alias 2",
-            uri: "http://localhost:9091"
-        }, {
-            _id: 2,
-            alias: "my alias 3",
-            uri: "http://localhost:9092"
-        }, {
-            _id: 3,
-            alias: "my alias 4",
-            uri: "http://localhost:9093"
+            uri: "http://localhost:9090/health",
+            interval: 5
         }]
     },
     getters: {
